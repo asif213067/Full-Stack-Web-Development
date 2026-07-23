@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.box {
+    border: 1px solid rgb(66, 5, 5);
+    height: 100px;
+    font-size: 2rem;
+}
+
+.user_container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.user {
+    border: 1px solid rgb(37, 173, 27);
+    height: 100px;
+    font-size: 2rem;
+}
+
+.pic_container {
+    display: flex;
+    border: 3px solid green;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    width: 60px;
+    height: 30px;
+}

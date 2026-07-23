@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <h1>Welcome to My Website</h1>
+    </header>
+
+    <main>
+      <img
+        src="images/restaurant_logo.jfif"
+        alt="Website logo image"
+      />
+
+      <section id="home">
+        <h2>Home</h2>
+        <p>
+          This is the home section, giving a quick introduction to the page.
+        </p>
+      </section>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          This is the about section, explaining more about who we are and what
+          we do.
+        </p>
+      </section>
+
+      <section id="services">
+        <h2>Services</h2>
+        <p>This is the services section, listing what we offer.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Duration</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Web Design</td>
+              <td>2 weeks</td>
+              <td>$300</td>
+            </tr>
+            <tr>
+              <td>SEO Optimization</td>
+              <td>1 week</td>
+              <td>$150</td>
+            </tr>
+            <tr>
+              <td>Maintenance</td>
+              <td>Monthly</td>
+              <td>$50</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+
+        <form>
+          <label for="name">Name</label><br />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          /><br /><br />
+
+          <label for="email">Email</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          /><br /><br />
+
+          <label for="message">Message</label><br />
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write your message here"
+            required
+          ></textarea
+          ><br /><br />
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 My Simple Webpage. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

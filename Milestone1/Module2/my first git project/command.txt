@@ -1,0 +1,15 @@
+// 1. ---- one time each project to start git
+git init
+
+// 2. ---- Every time to add something
+git add .
+
+// 3. ---- Every time you commit
+git commit -m "first commit"
+
+// 4. ----- Every time push
+git push
+
+git branch -M main
+git remote add origin https://github.com/asif213067/my-first-git-project.git
+git push -u origin main

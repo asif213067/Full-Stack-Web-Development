@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 5px;
+    margin: 20px;
+    border: 1px solid wheat;
+    background-color: rgb(181, 219, 206);
+    box-shadow: -10px 5px 50px rgb(43, 44, 35);
+    gap: 30px;
+}
