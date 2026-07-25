@@ -1,0 +1,8 @@
+Create and run a JavaScript file
+Declare and use variables
+Choose appropriate variable names
+Work with Number, String, and Boolean data types
+Use typeof to identify data types
+Perform arithmetic operations
+Use shorthand operators (+=, -=, *=, /=, %=)
+Build a small JavaScript program using variables and calculations
