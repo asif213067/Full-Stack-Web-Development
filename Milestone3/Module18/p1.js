@@ -163,7 +163,6 @@ console.log(splitFirstRest([10, 20, 30, 40]));
 // }
 
 const cloneAndUpdate = (arr, index, newValue) => {
-
     return arr.map((item, idx) => idx === index ? newValue : item);
 }
 
