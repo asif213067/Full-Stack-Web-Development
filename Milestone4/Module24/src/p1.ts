@@ -29,24 +29,20 @@
 
 // Starter Code
 function getTicketPrice(age: number): number {
+  if (age < 5) return 0;
 
-    if(age < 5) return 0;
- 
-    if(age >= 5 && age <= 12) return 100;
+  if (age >= 5 && age <= 12) return 100;
 
-    if(age >= 13 && age <= 59) return 200;
+  if (age >= 13 && age <= 59) return 200;
 
-    return 120;
+  return 120;
 }
 
 // Examples
-console.log(getTicketPrice(3));  // 0
+console.log(getTicketPrice(3)); // 0
 console.log(getTicketPrice(10)); // 100
 console.log(getTicketPrice(25)); // 200
 console.log(getTicketPrice(65)); // 120
-
-
-
 
 // Problem 2 — Store Inventory Status
 // Concepts: function types, number, string, conditional logic, boundary conditions
@@ -72,28 +68,25 @@ console.log(getTicketPrice(65)); // 120
 
 // Think carefully about boundary values such as:
 // Starter Code
-function getStockStatus(stock: number): string{
-    if(stock === 0) return "Out of Stock";
-    if(stock >= 1 && stock <= 5) return "Almost Sold Out";
-    if(stock >= 6 && stock <=20) return "Available";
-    return "In Stock"
+function getStockStatus(stock: number): string {
+  if (stock === 0) return "Out of Stock";
+  if (stock >= 1 && stock <= 5) return "Almost Sold Out";
+  if (stock >= 6 && stock <= 20) return "Available";
+  return "In Stock";
 }
 
 // Example
 // Examples
-console.log(getStockStatus(0));  // "Out of Stock"
-console.log(getStockStatus(3));  // "Almost Sold Out"
+console.log(getStockStatus(0)); // "Out of Stock"
+console.log(getStockStatus(3)); // "Almost Sold Out"
 console.log(getStockStatus(12)); // "Available"
 console.log(getStockStatus(50)); // "In Stock"
 
 // Boundary values
-console.log(getStockStatus(5));  // "Almost Sold Out"
-console.log(getStockStatus(6));  // "Available"
+console.log(getStockStatus(5)); // "Almost Sold Out"
+console.log(getStockStatus(6)); // "Available"
 console.log(getStockStatus(20)); // "Available"
 console.log(getStockStatus(21)); // "In Stock"
-
-
-
 
 // Problem 3 — Social Media Profile Formatter
 // Concepts: object types, type/interface, function parameter typing, return types, template literals
@@ -110,26 +103,21 @@ console.log(getStockStatus(21)); // "In Stock"
 // Starter Code
 // TODO: define a type or interface for the user
 
-interface User{
-    name: string,
-    age: number,
-    city: string
-}
- 
-function formatUserProfile(user: User): string {
-    return `${user.name} is ${user.age} years old and lives in ${user.city}.`
+interface User {
+  name: string;
+  age: number;
+  city: string;
 }
 
+function formatUserProfile(user: User): string {
+  return `${user.name} is ${user.age} years old and lives in ${user.city}.`;
+}
 
 // Example
-console.log(formatUserProfile({name: "Fahim", age: 22, city: "Dhaka"}));
+console.log(formatUserProfile({ name: "Fahim", age: 22, city: "Dhaka" }));
 
 // Expected output:
 // "Fahim is 22 years old and lives in Dhaka."
-
-
-
-
 
 // Problem 4 — Shopping Cart Calculator
 // Concepts: object types, array types, reduce(), function parameter and return types
@@ -152,37 +140,33 @@ console.log(formatUserProfile({name: "Fahim", age: 22, city: "Dhaka"}));
 // TODO: define a type for a single product
 
 interface Product {
-    name: string,
-    price: number;
+  name: string;
+  price: number;
 }
- 
+
 function calculateCartTotal(products: Product[]): number {
-    return products.reduce((sum, product) => {
-        return sum + product.price;
-    }, 0);
+  return products.reduce((sum, product) => {
+    return sum + product.price;
+  }, 0);
 }
 
 // Example
 const products: Product[] = [
-    { name: "Keyboard", price: 1500 },
-    { name: "Mouse", price: 800 },
-    { name: "USB Cable", price: 300 }
+  { name: "Keyboard", price: 1500 },
+  { name: "Mouse", price: 800 },
+  { name: "USB Cable", price: 300 },
 ];
- 
+
 // another example:
 const products2: Product[] = [
-    { name: "Book", price: 500 },
-    { name: "Pen", price: 50 },
-    { name: "Bag", price: 1200 }
+  { name: "Book", price: 500 },
+  { name: "Pen", price: 50 },
+  { name: "Bag", price: 1200 },
 ];
- 
+
 //output
-console.log(calculateCartTotal(products2));  // 1750
-console.log(calculateCartTotal(products));   // 2600
-
-
-
-
+console.log(calculateCartTotal(products2)); // 1750
+console.log(calculateCartTotal(products)); // 2600
 
 // Problem 5 — Student Result Analyzer
 // Concepts: nested arrays, object types, reduce(), return object types, conditional logic
@@ -202,39 +186,35 @@ console.log(calculateCartTotal(products));   // 2600
 // TODO: define a type for a student
 
 interface Student {
-    name: string,
-    marks: number[],
+  name: string;
+  marks: number[];
 }
 
 interface StudentResult {
-    name: string,
-    average: number,
-    result: "Passed" | "Failed";
+  name: string;
+  average: number;
+  result: "Passed" | "Failed";
 }
- 
+
 function getStudentResult(student: Student): StudentResult {
-    const {name, marks} = student;
+  const { name, marks } = student;
 
-    if(marks.length === 0)
-        return {name, average: 0, result: "Failed"};
+  if (marks.length === 0) return { name, average: 0, result: "Failed" };
 
-    const total = marks.reduce((sum, mark) => sum + mark, 0);
-    const average = total / marks.length;
+  const total = marks.reduce((sum, mark) => sum + mark, 0);
+  const average = total / marks.length;
 
-    return {name, average, result: average >= 40 ? "Passed" : "Failed"};
+  return { name, average, result: average >= 40 ? "Passed" : "Failed" };
 }
 // Example
-console.log(getStudentResult({name: "Rafi", marks: [80, 75, 90, 85]}));
- 
+console.log(getStudentResult({ name: "Rafi", marks: [80, 75, 90, 85] }));
+
 // another example:
-console.log(getStudentResult({name: "Nabil", marks: [30, 35, 40, 25]}));
- 
+console.log(getStudentResult({ name: "Nabil", marks: [30, 35, 40, 25] }));
+
 // Expected output:
 // { name: "Rafi", average: 82.5, result: "Passed" }
 // { name: "Nabil", average: 32.5, result: "Failed" }
-
-
-
 
 // Problem 6 — Role-Based Permission Checker
 // Concepts: union types, literal types, function parameter types, type safety
@@ -254,23 +234,19 @@ console.log(getStudentResult({name: "Nabil", marks: [30, 35, 40, 25]}));
 // Starter Code
 
 type Role = "admin" | "editor" | "viewer";
- 
-function canEdit(role: Role): boolean {
-    // if(role === "admin" || role === "editor")
-    //     return true;
-    // return false;
 
-    return role === "admin" || role === "editor";
+function canEdit(role: Role): boolean {
+  // if(role === "admin" || role === "editor")
+  //     return true;
+  // return false;
+
+  return role === "admin" || role === "editor";
 }
 
-
 // Example
-console.log(canEdit("admin"));    // true
-console.log(canEdit("editor"));   // true
-console.log(canEdit("viewer"));   // false
-
-
-
+console.log(canEdit("admin")); // true
+console.log(canEdit("editor")); // true
+console.log(canEdit("viewer")); // false
 
 // Problem 7 — Product Category Search
 // Concepts: typed arrays, object types, function parameters, filter(), return types
@@ -285,33 +261,27 @@ console.log(canEdit("viewer"));   // false
 // TODO: define a type for a product (including category)
 
 type Product1 = {
-    name: string;
-    price: number;
-    category: string;
+  name: string;
+  price: number;
+  category: string;
 };
- 
-function findProducts(products: Product1[], category: string): Product1[] {
-    return products.filter(product => product.category === category);
-}
 
+function findProducts(products: Product1[], category: string): Product1[] {
+  return products.filter((product) => product.category === category);
+}
 
 // Example
 const products1 = [
-    { name: "iPhone 15", price: 90000, category: "phone" },
-    { name: "Galaxy S24", price: 85000, category: "phone" },
-    { name: "MacBook Air", price: 120000, category: "laptop" },
-    { name: "Dell XPS", price: 110000, category: "laptop" }
+  { name: "iPhone 15", price: 90000, category: "phone" },
+  { name: "Galaxy S24", price: 85000, category: "phone" },
+  { name: "MacBook Air", price: 120000, category: "laptop" },
+  { name: "Dell XPS", price: 110000, category: "laptop" },
 ];
- 
+
 console.log(findProducts(products1, "phone"));
 // returns the iPhone 15 and Galaxy S24 objects
 console.log(findProducts(products1, "laptop"));
 // returns the two laptop products
-
-
-
-
-
 
 // Problem 8 — Hospital Patient Status
 // Concepts: union types, optional properties, type narrowing, discriminated unions, object types
@@ -340,19 +310,112 @@ console.log(findProducts(products1, "laptop"));
 
 // Starter Code
 // TODO: define types for GeneralPatient and EmergencyPatient
- 
-// function getPatientStatus(patient: GeneralPatient | EmergencyPatient): <type> {
- 
-//     // write your code here
- 
-// }
-// // Example
-// getPatientStatus({ name: "Rahim", age: 35, type: "general" });
-// // "General patient"
- 
-// getPatientStatus({ name: "Karim", age: 60, type: "emergency", emergencyLevel: 1 });
-// // "Critical emergency"
- 
-// getPatientStatus({ name: "Hasan", age: 45, type: "emergency", emergencyLevel: 3 });
-// // "Moderate emergency"
 
+type GeneralPatient = {
+  name: string;
+  age: number;
+  type: "general";
+};
+
+type EmergencyPatient = {
+  name: string;
+  age: number;
+  type: "emergency";
+  emergencyLevel: 1 | 2 | 3;
+};
+
+function getPatientStatus(patient: GeneralPatient | EmergencyPatient): string {
+  if (patient.type === "emergency") {
+    if (patient.emergencyLevel === 1) return "Critical emergency";
+    if (patient.emergencyLevel === 2) return "Serious emergency";
+    return "Moderate emergency";
+  }
+
+  return "General patient";
+}
+
+// Example
+console.log(getPatientStatus({ name: "Rahim", age: 35, type: "general" }));
+// "General patient"
+
+console.log(
+  getPatientStatus({
+    name: "Karim",
+    age: 60,
+    type: "emergency",
+    emergencyLevel: 1,
+  }),
+);
+// "Critical emergency"
+
+console.log(
+  getPatientStatus({
+    name: "Hasan",
+    age: 45,
+    type: "emergency",
+    emergencyLevel: 3,
+  }),
+);
+// "Moderate emergency"
+
+// Problem 9 — Bank Transaction Processor
+// Concepts: union types, discriminated unions, type narrowing, object types, return types, conditional logic
+// Function name must be: processTransaction
+// Scenario
+// A banking application needs to process deposits and withdrawals. Every transaction contains a type and an amount.
+// Deposit
+// {
+//     type: "deposit",
+//     amount: 2000
+// }
+// Withdrawal
+// {
+//     type: "withdraw",
+//     amount: 1500
+// }
+// Task
+// Create a function named processTransaction. It should receive the current account balance and a transaction, and return the new balance.
+// Rules
+// A deposit increases the balance.
+// A withdrawal decreases the balance.
+// A customer cannot withdraw more money than they currently have — in that case, the original balance should remain unchanged.
+// TypeScript Requirement
+// Represent the two possible transaction shapes using TypeScript's type system. The function should not accept arbitrary transaction types.
+// Starter Code
+// TODO: define types for Deposit and Withdrawal transactions
+
+interface Deposit {
+  type: "deposit";
+  amount: number;
+}
+
+interface Withdrawal {
+  type: "withdraw";
+  amount: number;
+}
+
+function processTransaction(balance: number, transaction: Deposit | Withdrawal): number {
+  if (transaction.type === "deposit") {
+    return balance + transaction.amount;
+  }
+
+  if (transaction.type === "withdraw") {
+    if (transaction.amount > balance) {
+      return balance;
+    }
+    return balance - transaction.amount;
+  }
+
+  return balance;
+}
+
+// Example
+console.log(processTransaction(5000, { type: "deposit", amount: 2000 }));
+// 7000
+
+console.log(processTransaction(5000, { type: "withdraw", amount: 2000 }));
+// 3000
+
+// insufficient balance:
+console.log(processTransaction(5000, { type: "withdraw", amount: 7000 }));
+// 5000  (unchanged)
