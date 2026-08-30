@@ -1,0 +1,30 @@
+.test {
+  color: antiquewhite;
+  background-color: black;
+  font-size: 80px;
+  font-weight: 600;
+  margin: 30px;
+  padding: 30px;
+}
+
+@media (max-width: 800px) {
+  .test {
+    color: gold;
+    background-color: whitesmoke;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 30px;
+    padding: 30px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+    .test {
+    color: blueviolet;
+    background-color: gray;
+    font-size: 30px;
+    font-weight: 400;
+    margin: 30px;
+    padding: 30px;
+}
+}
