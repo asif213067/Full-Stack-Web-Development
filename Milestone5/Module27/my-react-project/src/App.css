@@ -1,3 +1,12 @@
+.student {
+  border-radius: 10px;
+  border: 1px solid rgb(227, 164, 69);
+  margin: 20px;
+  padding: 20px;
+}
+
+
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
