@@ -18,6 +18,7 @@ function App() {
       <Suspense fallback={<h2>Loading...</h2>}>
         <Countries countriesPromise={countriesPromise()} />
       </Suspense>
+      
     </>
   )
 }
