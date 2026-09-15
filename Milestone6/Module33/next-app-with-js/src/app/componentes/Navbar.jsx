@@ -8,6 +8,7 @@ function Navbar() {
         <li><Link href='/doc'>Doc</Link></li>
         <li><Link href='/about'>About</Link></li>
         <li><Link href='/about/developers'>Developer</Link></li>
+        <li><Link href='/blogs'>Blog</Link></li>
     </>
 
 
