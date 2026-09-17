@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const Post = ({ blog }) => {
@@ -14,11 +15,13 @@ const Post = ({ blog }) => {
             </figure> */}
             <div className="card-body">
                 <h2 className="card-title">{blog.title}</h2>
-                <h3>{blog.author}</h3>
+                {/* <h3>{blog.author}</h3>
                 <p>{blog.description}</p>
-                <p>{blog.time}</p>
+                <p>{blog.time}</p> */}
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">More Blog</button>
+                    <Link href={`/blogs/${blog.id}`}>
+                        <button className="btn btn-primary">Show More</button>
+                    </Link>
                 </div>
             </div>
         </div>

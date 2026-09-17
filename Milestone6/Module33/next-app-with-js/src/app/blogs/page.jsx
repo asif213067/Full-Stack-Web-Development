@@ -59,7 +59,7 @@ const Blogpage = () => {
     return (
         <div>
             <h2>Our Blog</h2>
-            <div className='flex justify-around gap-8'>
+            <div className='grid grid-cols-3 gap-4'>
                 {
                     blogsData.map(blog => <Post key={blog.id} blog={blog} />)
                 }

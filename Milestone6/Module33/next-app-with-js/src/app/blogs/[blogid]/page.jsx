@@ -59,6 +59,12 @@ const BlogDetails = async ({params}) => {
 
     const post = blogsData.find(post => post.id === parseInt(blogid));
 
+    if(!post) {
+        return (
+            <h1 className='text-3xl text-pink-400'>There is no data.</h1>
+        );
+    }
+
 
     return (
         <div>
