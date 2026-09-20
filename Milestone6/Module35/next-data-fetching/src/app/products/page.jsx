@@ -2,12 +2,11 @@ import React from 'react'
 import ProductCard from '../components/ProductCard';
 
 const getProducts = async () => {
-    try {
-        const res = await fetch("http://localhost:4000/products");
-        return res.json();
-    } catch (error) {
-        throw new Error("Failed to fetch Products data!");
-    }
+    const res = await fetch("http://localhost:4000/products", { cache: 'force-cache'});
+    if (!res.ok) { 
+        throw new Error("Failed to fetch Products data!")
+    };
+    return res.json();
 }
 
 const ProductPage = async () => {
