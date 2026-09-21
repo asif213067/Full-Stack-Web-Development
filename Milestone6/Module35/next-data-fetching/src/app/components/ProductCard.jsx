@@ -1,11 +1,13 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
+import useUser from '../hooks/useUser';
 
 const ProductCard = ({ product }) => {
 
     const { title, price, descriptino, image, category } = product;
 
-    console.log(image);
+    const user = useUser();  // apply context API with help of custom hook
 
     return (
         <div className="card bg-base-100 shadow-sm">
@@ -28,6 +30,7 @@ const ProductCard = ({ product }) => {
                     <div className="badge badge-outline">{category}</div>
                     <div className="badge badge-outline">Products</div>
                 </div>
+                <h2>{user}</h2>
             </div>
         </div>
     )

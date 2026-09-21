@@ -1,7 +1,12 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../contexts/UserContext'
 
 const Navbar = () => {
+
+    const userContext = useContext(UserContext);   
+    // console.log(userContext);
 
     const links = <>
         <li><Link href="/">Home</Link></li>
@@ -33,6 +38,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <a className="btn">Button</a>
+            </div>
+            <div>
+                <h1>{userContext}</h1>
             </div>
         </div>
     )
