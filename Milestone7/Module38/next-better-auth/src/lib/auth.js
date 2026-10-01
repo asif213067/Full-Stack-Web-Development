@@ -1,9 +1,7 @@
-// import dns from "dns";
 import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 
-// dns.setServers(["1.1.1.1"]);
 
 const client = new MongoClient(process.env.BETTER_AUTH_DB_URL);
 const db = client.db('better-auth-db');
