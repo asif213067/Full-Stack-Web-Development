@@ -1,6 +1,12 @@
 import express from "express";
+import cors from 'cors';
+
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello world from Express.js");
@@ -20,6 +26,15 @@ app.get("/contact", (req, res) => {
 
 app.get("/users", (req, res) => {
   res.send(users);
+});
+
+app.post("/users", (req, res) => {
+  console.log("from data client", req.body)
+  // temporey datastore
+  const newUser = req.body;
+  newUser.id = users.length + 1;
+  users.push(newUser);
+  res.send({success: true, message: "User added successfully!"})
 });
 
 const users = [
@@ -94,5 +109,3 @@ const users = [
     city: "Mymensingh",
   },
 ];
-
-console.log(users);
