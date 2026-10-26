@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { Suspense } from 'react'
+import Users from '../componentes/Users';
 
-const UserPage = async () => {
+const usersPromise = async () => {
     const data = await fetch('http://localhost:5000/users');
-    const users = await data.json();
+    return data.json();
+}
+
+const UserPage = async() => {    
   return (
       <div>
-          <h2>User Data Comming soon: {users.length}</h2>
+          <h2>User Data Comming soon:</h2>
+          <Suspense fallback={<h2>Loading...</h2>}>
+              <Users usersPromise={ usersPromise } />
+          </Suspense>
     </div>
   )
 }
