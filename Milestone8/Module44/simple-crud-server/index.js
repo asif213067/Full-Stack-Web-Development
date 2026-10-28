@@ -1,5 +1,5 @@
 import express from 'express';
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 import cors from 'cors';
 import "dotenv/config";
 
@@ -38,6 +38,45 @@ app.get('/users', async (req, res) => {
     res.send(allUsers);
 })
 
+app.get('/users/:id', async (req, res) => {
+  console.log('paramas from the server', req.params);
+
+  const id = req.params.id;
+  const quary = { _id: new ObjectId(id) };
+
+  const result = await users.findOne(quary);
+
+  res.send(result);
+})
+
+app.patch('/users/:id', async (req, res) => {
+  const id = req.params.id;
+  const updatedUser = req.body;
+
+  console.log("Updating user with id:", id, "with data", updatedUser);
+
+  const filter = { _id: new ObjectId(id) };
+  const options = { upsert: true };
+
+  const updateDoc = {
+    $set: {
+      name: updatedUser.name,
+      email: updatedUser.email
+    }
+  }
+
+  const result = await users.updateOne(filter, updateDoc, options);
+  res.send(result);
+})
+
+app.delete('/users/:id', async (req, res) => {
+  const id = req.params.id;
+  const quary = { _id: new ObjectId(id) };
+
+  const result = await users.deleteOne(quary);
+  res.send(result);
+})
+
 app.post('/users', async (req, res) => {
   const newUser = req.body;
 
@@ -46,6 +85,8 @@ app.post('/users', async (req, res) => {
   const result = await users.insertOne(newUser);
   res.send(result);
 })
+
+
 
 app.listen(port, () => {
   console.log(`Simple crud server is running on port: ${port}`);
